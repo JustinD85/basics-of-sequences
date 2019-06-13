@@ -1,32 +1,13 @@
 # custom-functions
 
-FIXME: description
+For me to gain more experience with the makeup of sequences via deliberate learning.
 
-## Installation
+## Installation && Usage
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar custom-functions-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+- clone this repo
+- navigate into folder
+- run `lein repl`
+- enjoy (look in src/core for functions to call)
 
 ## License
 
