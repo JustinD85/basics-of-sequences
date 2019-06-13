@@ -19,8 +19,12 @@
 (def node-1 {:value "Mary" :next node-2})
 
 ;; I implement the three core functions that all sequences should respond to
-;; NOTE these are modified to work with maps, normally tuples would be returned from maps
-;; This function simply returns the first value
+
+;; NOTE these are modified to work with maps,
+;; normally tuples would be returned from maps
+;; so I am going to write custom implementation to play nicely with maps
+
+;; This function returns the first value
 (def _first
   (fn [node]
     (:value node)))
@@ -54,4 +58,10 @@
 ;; returns "Mary"
 (_first (_rest node-0))
 
+;; Implementation of map
+(defn _map [list transform-function]
+  (when list
+    (_cons (transform-function (_first list)) (_map (_rest list) transform-function))))
 
+;; _map in action returns all value uppercased, "OHHHHHH, MARY HAD A LITTLE LAMB"
+(_map node-1 #(.toUpperCase %))
