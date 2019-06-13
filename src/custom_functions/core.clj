@@ -18,7 +18,21 @@
 (def node-4 {:value "little" :next: node-5})
 (def node-5 {:value "lamb" :next: null})
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+;; I implement the three core functions that all sequences should respond to
+;; NOTE:: this is modified to respond to maps, ordinarily a tuple would be returned
+
+;; This function simply returns the first value
+(def _first
+  (fn [node]
+    (:value node)))
+
+;; This function returns the next node
+(def _rest
+  (fn [node]
+    (:next node)))
+
+;; This function prepends a node to an existing node
+(def _cons
+  (fn [newNode node]
+    {:value newNode :next node}))
+
