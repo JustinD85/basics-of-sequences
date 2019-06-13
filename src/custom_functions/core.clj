@@ -19,8 +19,7 @@
 (def node-1 {:value "Mary" :next node-2})
 
 ;; I implement the three core functions that all sequences should respond to
-;; NOTE:: this is modified to respond to maps, ordinarily a tuple would be returned
-
+;; NOTE these are modified to work with maps, normally tuples would be returned from maps
 ;; This function simply returns the first value
 (def _first
   (fn [node]
@@ -33,6 +32,26 @@
 
 ;; This function prepends a node to an existing node
 (def _cons
-  (fn [newNode node]
-    {:value newNode :next node}))
+  (fn [new-node-value node]
+    {:value new-node-value :next node}))
+
+;;Example usages
+;; Load a REPL to try them, or copy into online Clojure REPL
+
+;; returns "Mary"
+(_first node-1)
+
+;; returns "had"
+(_first (_rest node-1))
+
+;; returns "a"
+(_first (_rest (_rest node-1)))
+
+;; returns "Ohhhhhh,"
+(def node-0 (_cons "Ohhhhhh" node-1))
+(_first node-0)
+
+;; returns "Mary"
+(_first (_rest node-0))
+
 
