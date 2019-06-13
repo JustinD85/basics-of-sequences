@@ -59,6 +59,13 @@
 (_first (_rest node-0))
 
 ;; Implementation of map
+
+;; Explanation: _map transforms the list given according to the transform function
+;; this happens recursively until _map reaches the end of the list.
+;; So the final map is built from the last call of _maps return value
+;; and that is given to a cons to continue building out the final result from
+;; the end of the map to the front by prepending nodes. #mind-blown
+
 (defn _map [list transform-function]
   (when list
     (_cons (transform-function (_first list)) (_map (_rest list) transform-function))))
