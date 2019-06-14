@@ -120,12 +120,18 @@
        :height (dec 71))
 ;; => {:fav-num 13, :age 27, :height 70}
 
-;; Example implementation of `take` and `drop`
+;; Example implementation of `take`
 (defn _take [number sequence]
-  (when (> number 0)
-          (cons (first sequence) (_take (dec number) (rest sequence)))))
+  (if (> number 0)
+    (cons (first sequence) (_take (dec number) (rest sequence)))
+    ()))
 
-;; confirm implementation
+;; confirm naive implementation
+(_take 0 (range 50))
+;; => ()
+(take 0 (range 50))
+;; => ()
+
 (_take 2 (range 50))
 ;; => (0 1)
 (_take 2 (range 50))
@@ -135,3 +141,25 @@
 ;; => (0 1 2 3 4 5 6 7 8 9 10 11 12 13 14)
 (take 15 (range 50))
 ;; => (0 1 2 3 4 5 6 7 8 9 10 11 12 13 14)
+
+;; Example implementation of `drop`
+(defn _drop [number sequence]
+  (if (> number 0)
+    (_drop (dec number) (rest sequence))
+    (reverse (into () sequence))))
+
+;; confirm naive implementation
+(_drop 0 [1 2 3])
+;; => (1 2 3)
+(drop 0 [1 2 3])
+;; => (1 2 3)
+
+(_drop 5 (range 12))
+;; => (5 6 7 8 9 10 11)
+(drop 5 (range 12))
+;; => (5 6 7 8 9 10 11)
+
+(_drop 2 [1])
+;; => ()
+(drop 2 [1])
+;; => ()
