@@ -72,3 +72,19 @@
 
 ;; _map in action returns all value uppercased, "OHHHHHH, MARY HAD A LITTLE LAMB"
 (_map node-1 #(.toUpperCase %))
+
+;; Examples of interesting usages of functions
+;; normally with map/filter/etc.. you give map a sequence of values.. what if instead
+;; we give the the functions a sequence of functions that operate on another sequence of values!
+
+;; some usual functions in a program
+(def sum #(reduce + %))
+(def avg #(/ (sum %) (float (count %))))
+(defn stats [list-numbers]
+  (map #(% list-numbers) [sum count avg])) ;;count is built in
+
+(stats [13 1337 42])
+;; => (1392 3 464.0)
+
+;; That's right instead of calling 3 different functions on the same values, we passed map
+;; a sequence of functions to be called on ONE value!! schwaeeet
