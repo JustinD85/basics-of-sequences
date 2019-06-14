@@ -106,3 +106,10 @@
 ;; Example using a keyword
 (map :but-really identities)
 ;; => ("Clark Kent" "Your Father" "Your Brother" "Peter Parker")
+
+;; Example using reduce to adjust values of a map
+(defn incrementer [_map [key value]]
+  (assoc _map key (dec value)))
+
+(reduce incrementer {} {:fav-num 14 :age 28 :height 71})
+;; => {:fav-num 13, :age 27, :height 70}
