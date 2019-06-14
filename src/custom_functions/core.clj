@@ -92,3 +92,17 @@
 
 ;; That's right instead of calling 3 different functions on the same values, we passed map
 ;; a sequence of functions to be called on ONE value!! schwaeeet
+
+
+;; Since keywords can be used as functions I can feed them to map to succinctly get values
+
+;; Our super dataset
+(def identities
+  [{:cover "Superman" :but-really "Clark Kent"}
+   {:cover "Santa Klaus" :but-really "Your Father"}
+   {:cover "Boogey Man" :but-really "Your Brother"}
+   {:cover "Spider Man" :but-really "Peter Parker"}])
+
+;; Example using a keyword
+(map :but-really identities)
+;; => ("Clark Kent" "Your Father" "Your Brother" "Peter Parker")
