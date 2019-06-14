@@ -114,6 +114,24 @@
 (reduce incrementer {} {:fav-num 14 :age 28 :height 71})
 ;; => {:fav-num 13, :age 27, :height 70}
 
-;;which is functionally the same as
-(assoc (assoc (assoc {} :fav-num (dec 14)) :age (dec 28)) :height (dec 71))
+;; which is functionally the same as
+(assoc (assoc (assoc {} :fav-num (dec 14))
+              :age (dec 28))
+       :height (dec 71))
 ;; => {:fav-num 13, :age 27, :height 70}
+
+;; Example implementation of `take` and `drop`
+(defn _take [number sequence]
+  (when (> number 0)
+          (cons (first sequence) (_take (dec number) (rest sequence)))))
+
+;; confirm implementation
+(_take 2 (range 50))
+;; => (0 1)
+(_take 2 (range 50))
+;; => (0 1)
+
+(_take 15 (range 50))
+;; => (0 1 2 3 4 5 6 7 8 9 10 11 12 13 14)
+(take 15 (range 50))
+;; => (0 1 2 3 4 5 6 7 8 9 10 11 12 13 14)
