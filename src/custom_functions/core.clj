@@ -113,3 +113,7 @@
 
 (reduce incrementer {} {:fav-num 14 :age 28 :height 71})
 ;; => {:fav-num 13, :age 27, :height 70}
+
+;;which is functionally the same as
+(assoc (assoc (assoc {} :fav-num (dec 14)) :age (dec 28)) :height (dec 71))
+;; => {:fav-num 13, :age 27, :height 70}
