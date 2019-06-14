@@ -80,6 +80,10 @@
 ;; some usual functions in a program
 (def sum #(reduce + %))
 (def avg #(/ (sum %) (float (count %))))
+
+;; an unusual implementation, here we give map all the functions that returns stats we care
+;; about giving them one set of values, much better than calling function 123...n times!
+
 (defn stats [list-numbers]
   (map #(% list-numbers) [sum count avg])) ;;count is built in
 
