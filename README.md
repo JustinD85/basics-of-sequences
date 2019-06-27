@@ -1,6 +1,6 @@
 [![Built with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg)](http://spacemacs.org)
 # Custom-functions
-For me to gain more experience with the makeup of sequences via deliberate learning.
+For me to gain more experience with the makeup of sequences.
 
 ## Installation && Usage
 - clone this repo
