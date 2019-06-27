@@ -108,10 +108,10 @@
 ;; => ("Clark Kent" "Your Father" "Your Brother" "Peter Parker")
 
 ;; Example using reduce to adjust values of a map
-(defn incrementer [_map [key value]]
+(defn decrementer [_map [key value]]
   (assoc _map key (dec value)))
 
-(reduce incrementer {} {:fav-num 14 :age 28 :height 71})
+(reduce decrementer {} {:fav-num 14 :age 28 :height 71})
 ;; => {:fav-num 13, :age 27, :height 70}
 
 ;; which is functionally the same as
